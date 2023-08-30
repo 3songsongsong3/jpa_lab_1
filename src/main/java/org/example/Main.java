@@ -59,6 +59,10 @@ public class Main {
         Member findMember = em.find(Member.class, id);
         System.out.println("findMember = " + findMember.getUsername() + ", age = " + findMember.getAge());
 
+        // JPQL (Java Persistence Query Language)
+        // JPA가 제공하는 SQL을 추상화한 객체지향 쿼리 언어
+        // JPQL은 엔티티 객체를 대상으로 쿼리한다. 클래스와 필드를 대상으로 쿼리한다.
+        // (select m from Member m) Member는 회원 엔티티 객체를 말하는 것이지, MEMBER 테이블이 아니다. (JPQL은 데이터베이스 테이블을 전혀 알지 못한다.)
         List<Member> members =
                     em.createQuery("select m from Member m", Member.class)
                             .getResultList();
